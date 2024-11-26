@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import streamlit.components.v1 as components
 
 # 加载模型和向量化器
 model = joblib.load('logistic_regression_model.joblib')
