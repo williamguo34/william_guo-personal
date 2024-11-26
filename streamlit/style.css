@@ -1,25 +1,40 @@
 /* streamlit/style.css */
 body {
-    background-color: #f0f4f8;  /* 更柔和的背景色 */
-    color: #333;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    animation: bg-animation 10s infinite alternate;
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes bg-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
 .stButton > button {
-    background-color: #007bff;  /* 按钮背景色 */
-    color: white;                /* 按钮文字颜色 */
-    border-color: #007bff;      /* 按钮边框颜色 */
-    border-radius: 5px;         /* 按钮圆角 */
-    padding: 10px 20px;         /* 按钮内边距 */
-    font-size: 16px;            /* 按钮字体大小 */
+    transition: transform 0.2s ease-in-out;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 .stButton > button:hover {
-    background-color: #0056b3;  /* 按钮悬停时的背景色 */
-    border-color: #0056b3;      /* 按钮悬停时的边框颜色 */
+    transform: scale(1.1);
 }
 
-.stTextArea {
-    border-radius: 5px;         /* 输入框圆角 */
-    border: 1px solid #ccc;     /* 输入框边框 */
-    padding: 10px;              /* 输入框内边距 */
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.stText {
+    animation: fadeIn 2s;
 }

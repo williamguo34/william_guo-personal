@@ -1,14 +1,7 @@
-import streamlit.components.v1 as components
-components.html(
-    """
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    """,
-    height=0
-)
-
 import streamlit as st
 import pandas as pd
 import joblib
+import streamlit.components.v1 as components
 
 # 加载模型和向量化器
 model = joblib.load('logistic_regression_model.joblib')
@@ -24,7 +17,7 @@ def predict_news(text):
 # 创建Streamlit应用
 def main():
     # 设置页面标题
-    st.markdown('<h1 style="text-align: center; color: #007bff;"> <i class="fas fa-newspaper"></i> 新闻真伪预测</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align: center; color: #007bff;"><i class="fas fa-newspaper"></i> 新闻真伪预测</h1>', unsafe_allow_html=True)
     
     # 添加一些间距
     st.markdown("<br>", unsafe_allow_html=True)
@@ -33,9 +26,8 @@ def main():
     with st.container():
         st.markdown(
             """
-            <div style="padding: 20px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div class="card">
             """, unsafe_allow_html=True)
-
         user_input = st.text_area('请输入新闻文本：', height=150)
         
         if st.button('预测'):
@@ -49,6 +41,15 @@ def main():
                 st.warning('请输入新闻文本后再点击预测。')
 
         st.markdown("</div>", unsafe_allow_html=True)  # 结束输入卡片
+
+    # 动态主题切换
+    theme = st.selectbox('选择主题', ['浅色', '深色'])
+    if theme == '深色':
+        st.markdown('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">', unsafe_allow_html=True)
+        st.markdown('<style>body { background-color: #333; color: #fff; }</style>', unsafe_allow_html=True)
+    else:
+        st.markdown('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">', unsafe_allow_html=True)
+        st.markdown('<style>body { background-color: #f9f9f9; color: #333; }</style>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
