@@ -42,14 +42,5 @@ def main():
 
         st.markdown("</div>", unsafe_allow_html=True)  # 结束输入卡片
 
-    # 动态主题切换
-    theme = st.selectbox('选择主题', ['浅色', '深色'])
-    if theme == '深色':
-        st.markdown('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">', unsafe_allow_html=True)
-        st.markdown('<style>body { background-color: #333; color: #fff; }</style>', unsafe_allow_html=True)
-    else:
-        st.markdown('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">', unsafe_allow_html=True)
-        st.markdown('<style>body { background-color: #f9f9f9; color: #333; }</style>', unsafe_allow_html=True)
-
 if __name__ == "__main__":
     main()
