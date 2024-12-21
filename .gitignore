@@ -1,0 +1,2 @@
+# Ignore the .streamlit directory and its contents
+.streamlit/
